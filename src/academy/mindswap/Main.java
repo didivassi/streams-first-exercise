@@ -19,8 +19,9 @@ public class Main {
     }
     public static String removeWordAndUpperCaseIt(String phrase,String wordToRemove){
         return Arrays.stream(phrase.split(" "))
-                .filter(word -> !word.toLowerCase().contains(wordToRemove))
+                .filter(word -> !word.toLowerCase().matches(wordToRemove))
                 .map(String::toUpperCase)
+                //.reduce("",(joined,word)-> joined.concat(word+" ") );
                 .collect(Collectors.joining(" "));
     }
 }

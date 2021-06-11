@@ -13,13 +13,14 @@ public class Main {
                 "Worked hard all my trash lifetime, no help from my trash friends\n" +
                 "So Lord, won't you buy me a trash Mercedes Benz";
 
-        String result=Arrays.asList(prayer.split(" "))
-                .stream()
-                .filter(word -> !word.toLowerCase().contains("trash"))
-                .map(word-> word.toUpperCase())
-                .collect(Collectors.joining(" "));
-
+        String result=removeWordAndUpperCaseIt(prayer,"trash");
         System.out.println(result);
-        
+
+    }
+    public static String removeWordAndUpperCaseIt(String phrase,String wordToRemove){
+        return Arrays.stream(phrase.split(" "))
+                .filter(word -> !word.toLowerCase().contains(wordToRemove))
+                .map(String::toUpperCase)
+                .collect(Collectors.joining(" "));
     }
 }
